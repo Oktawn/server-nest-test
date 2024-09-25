@@ -1,11 +1,15 @@
-import { UUID } from "crypto";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BeforeInsert, Column, Entity, PrimaryColumn } from "typeorm";
 
 @Entity({ name: 'users' })
 export class User {
 
-    @PrimaryGeneratedColumn('uuid')
-    id: UUID;
+    @PrimaryColumn()
+    uuid_id: string;
+
+    @BeforeInsert()
+    generate() {
+        this.uuid_id = crypto.randomUUID()
+    }
 
     @Column({ unique: true })
     username: string;
