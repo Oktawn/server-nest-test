@@ -17,7 +17,6 @@ config();
       {
         // @ts-ignore
         type: process.env.type_db,
-        host: process.env.host_db,
         port: parseInt(process.env.port_db, 10),
         username: process.env.user_db,
         password: process.env.pass_db,

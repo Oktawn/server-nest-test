@@ -1,13 +1,9 @@
 FROM node:22 As development
 
-workdir /app
-
-COPY package*.json ./
-
-RUN npm install
+WORKDIR /app
 
 COPY . .
 
-RUN npm run build
+RUN npm install
 
 CMD [ "npm", "run", "start:dev" ]
